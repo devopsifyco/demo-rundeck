@@ -18,7 +18,7 @@ Open browser http://localhost:4440/ with below credential:
 username: admin
 password: devopsify@demo
 
-# Demos
+## Demo Ubuntu
 
 ### Ubuntu: Create project
 Step 1: Create project via button Create New Project on http://localhost:4440/menu/home
@@ -50,6 +50,8 @@ lsb_release -a
 In tab Nodes, select "Dispatch to Nodes" and input your filter. Eg: tags: ubuntu
 
 Now you can run the job
+
+## Demo Windows
 
 ### Windows: Create project
 Step 1: Create project via button Create New Project on http://localhost:4440/menu/home
