@@ -1,0 +1,4 @@
+lab-ad:
+  description: Windows Server.
+  tags: windows,opsify
+  hostname: 10.68.1.50

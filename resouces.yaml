@@ -1,0 +1,10 @@
+devops-s3:
+  nodename: devops-s3
+  hostname: 10.68.1.100
+  osVersion: 5.4.0-167-generic
+  osFamily: unix
+  osArch: amd64
+  description: Ubuntu server node
+  osName: Linux
+  username: devopsify
+  tags: ubuntu,opsify
