@@ -2,7 +2,9 @@
 
 After checkout the repos you follow step
 
-## Build & run container image with compose file
+## Start the container
+
+### Build & run container image with compose file
 Run compose file with detach mode:
 ```
 podman compose up -d
@@ -13,7 +15,7 @@ Use this command to stop compose
 podman compose down
 ```
 
-## Login & config Project
+### Login & config Project
 Open browser http://localhost:4440/ with below credential:
 username: admin
 password: devopsify@demo
