@@ -4,10 +4,14 @@ After checkout the repos you follow step
 
 ## Build & run container image with compose file
 Run compose file with detach mode:
+```
 podman compose up -d
+```
 
 Use this command to stop compose
+```
 podman compose down
+```
 
 ## Login & config Project
 Open browser http://localhost:4440/ with below credential:
@@ -24,7 +28,7 @@ Let's delete the default source "Local"
 
 ### Ubuntu: Add Node Sources
 Add new Node Source for demo (Linux). Select "File" as source. Chose format resourceyaml
-Input File Path: /home/rundeck/resouces.yaml which was added in compose.yml file. Mark Writeable for this node source
+Input File Path: [/home/rundeck/resouces.yaml](resouces.yaml) which was added in [compose.yml](compose.yml) file. Mark Writeable for this node source
 
 ### Ubuntu: Add Key Storage for SSH
 Open http://localhost:4440/menu/storage?project=Demo
@@ -39,7 +43,10 @@ Add "keys/project/Demo/demo" to "SSH Password Storage Path". Select privateKey a
 ### Ubuntu: Run first job
 Open http://localhost:4440/project/Demo/jobs. Create "New Job", name it "Check OS version".
 In the Workflow tab add steps you want to run http://localhost:4440/project/Demo/job/create#workflow
-Add a simple step for execute remote "Command - Execute a remote command". Input "lsb_release -a" for Command then Save.
+Add a simple step for execute remote "Command - Execute a remote command". Input in Command then Save.
+```
+lsb_release -a
+```
 In tab Nodes, select "Dispatch to Nodes" and input your filter. Eg: tags: ubuntu
 
 Now you can run the job
@@ -52,7 +59,7 @@ Let's delete the default source "Local"
 
 ### Windows: Add Node Sources
 Add new Node Source for demo (Windows). Select "File" as source. Chose format resourceyaml
-Input File Path: /home/rundeck/resouces-win.yaml which was added in compose.yml file. Mark Writeable for this node source
+Input File Path: [/home/rundeck/resouces-win.yaml](resouces-win.yaml) which was added in compose.yml file. Mark Writeable for this node source
 
 ### Windows: Add Key Storage for login
 Open http://localhost:4440/menu/storage?project=Demo-Win
@@ -70,7 +77,10 @@ Password Storage Path. Eg: keys/project/Demo-Win/admin
 ### Windows: Run first job
 Open http://localhost:4440/project/Demo-Win/jobs. Create "New Job", name it "Check OS version".
 In the Workflow tab add steps you want to run http://localhost:4440/project/Demo-Win/job/create#workflow
-Add a simple step for execute remote "Command - Execute a remote command". Input "(Get-WMIObject win32_operatingsystem) | Select Name, Version" for Command then Save.
+Add a simple step for execute remote "Command - Execute a remote command". Input in Command then Save.
+```
+(Get-WMIObject win32_operatingsystem) | Select Name, Version
+```
 In tab Nodes, select "Dispatch to Nodes" and input your filter. Eg: tags: windows
 
 Now you can run the job
