@@ -46,7 +46,7 @@ Add "keys/project/Demo/demo" to "SSH Password Storage Path". Select privateKey a
 Open http://localhost:4440/project/Demo/jobs. Create "New Job", name it "Check OS version".
 In the Workflow tab add steps you want to run http://localhost:4440/project/Demo/job/create#workflow
 Add a simple step for execute remote "Command - Execute a remote command". Input in Command then Save.
-```
+```bash
 lsb_release -a
 ```
 In tab Nodes, select "Dispatch to Nodes" and input your filter. Eg: tags: ubuntu
@@ -88,3 +88,24 @@ Add a simple step for execute remote "Command - Execute a remote command". Input
 In tab Nodes, select "Dispatch to Nodes" and input your filter. Eg: tags: windows
 
 Now you can run the job
+
+## Webhook
+Open http://localhost:4440/webhook/admin?project=Demo. Create "Webhook", name it "Demo Webhook".
+In tab Handler Configuration,  Change "Job Envents" to  "Run Job"
+Then select Job want to run "Check OS version"
+
+Now you can trigger webhook without HTTP Authorization. 
+Save the webhook then run below curl command
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"YourName":"java"}' http://localhost:4440/api/45/webhook/WdGNQnOmWOFhVm587WlPPigEJY9D2hST#Demo_Webhook
+# Output will similar to this
+# {"jobId":"c152cd05-851f-4aec-ac23-93ce2597301e","executionId":"33"}
+```
+
+Or you want to use [HTTP Authorization](https://docs.rundeck.com/4.0.x/manual/webhooks.html#webhook-http-authorization-string), then check "Use Authorization Header".
+Save the webhook then run below curl command
+```bash
+curl -k -X POST -H "Authorization: the-authorization-string" -H "Content-Type: application/json" -d '{"YourName":"java"}' http://localhost:4440/api/45/webhook/WdGNQnOmWOFhVm587WlPPigEJY9D2hST#Demo_Webhook
+# Output will similar to this
+# {"jobId":"c152cd05-851f-4aec-ac23-93ce2597301e","executionId":"34"}
+```
